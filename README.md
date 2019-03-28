@@ -1,6 +1,6 @@
 # Flask on Heroku
 
-This project is intended to help you tie together some important concepts and
+This project is intended to help tie together some important concepts and
 technologies from the 12-day prep course, including Git, Flask, JSON, Pandas,
 Requests, Heroku, and Bokeh for visualization.
 
@@ -26,15 +26,17 @@ A [finished example](https://lemurian.herokuapp.com) that demonstrates some basi
 - Deploy to Heroku: `git push heroku master`
 - You should be able to see your site at `https://<app_name>.herokuapp.com`
 - A useful reference is the Heroku [quickstart guide](https://devcenter.heroku.com/articles/getting-started-with-python-o).
+- This app runs using the app.py script, which calls StockGraphs.py, as well as template.html.
 
 ## Step 2: Get data from API and put it in pandas
-- Use the `requests` library to grab some data from a public API. This will
-  often be in JSON format, in which case `simplejson` will be useful.
-- Build in some interactivity by having the user submit a form which determines which data is requested.
-- Create a `pandas` dataframe with the data.
+- This project utilizes the pandas DataReader to access The Investors Exchange (IEX) provides a wide range of data through an API.
+- Additional documentation on the reader can be found here https://pandas-datareader.readthedocs.io/en/latest/remote_data.html#remote-data-iex. 
+
+
 
 ## Step 3: Use Bokeh to plot pandas data
 - Create a Bokeh plot from the dataframe.
+- A plotting function exists in the StockGraphs.py.
 - Consult the Bokeh [documentation](http://bokeh.pydata.org/en/latest/docs/user_guide/embed.html)
   and [examples](https://github.com/bokeh/bokeh/tree/master/examples/embed).
 - Make the plot visible on your website through embedded HTML or other methods - this is where Flask comes in to manage the interactivity and display the desired content.

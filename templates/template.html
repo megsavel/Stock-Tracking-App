@@ -1,0 +1,49 @@
+<html>
+<head>
+
+
+<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.0.4.min.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-tables-1.0.4.min.css" type="text/css">
+
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.0.4.min.js"></script>
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-api-1.0.4.min.js"></script>
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-1.0.4.min.js"></script>
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-tables-1.0.4.min.js"></script>
+
+</head>
+<body>
+<H1>Stock Information</H1>
+
+<form name='stockform'  >
+
+    </form>
+ 
+
+
+
+<form action="/"  method='post'>
+      <p>
+    Ticker Symbol: <input type='text' name='stockform' />
+
+      </p>
+      <p>
+   
+      </p>
+<select name="feature_name">
+	{% for feature in feature_names %}
+		{% if feature == current_feature_name %}
+			<option selected value="{{ feature }}">{{ feature }}</option>
+		{% else %}
+			<option value="{{ feature }}">{{ feature }}</option>
+		{% endif %}
+	{% endfor %}
+</select>
+ <input type='submit' value='Submit' />
+</form>
+
+{{ script|safe }}
+{{ div|safe }}
+
+</body>
+</html>
