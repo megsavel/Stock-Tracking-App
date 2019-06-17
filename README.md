@@ -14,7 +14,7 @@ The [finished app](https://savel-milestone.herokuapp.com) accepts input about a 
 ## Accessing Data from API
 
 - This project utilizes the pandas DataReader to access The Investors Exchange (IEX) provides a wide range of data through an API.
-- Additional documentation on the reader can be found [here] (https://pandas-datareader.readthedocs.io/en/latest/remote_data.html#remote-data-iex). 
+- Additional documentation on the reader can be found [here](https://pandas-datareader.readthedocs.io/en/latest/remote_data.html#remote-data-iex). 
 
 
 ## Using Bokeh to plot pandas data
