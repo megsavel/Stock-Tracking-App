@@ -1,43 +1,25 @@
-# Flask on Heroku
+# A Flask App to Track Stock Prices
 
-This project is intended to help tie together some important concepts and
-technologies from the 12-day prep course, including Git, Flask, JSON, Pandas,
+This project ties together concepts from The Data Incubator's 12 day prep course. Including Git, Flask, JSON, Pandas,
 Requests, Heroku, and Bokeh for visualization.
 
-The repository contains a basic template for a Flask configuration that will
-work on Heroku.
+The [finished app](https://savel-milestone.herokuapp.com) accepts input about a particularly stock and tracks various pricing information for that particular stock.
 
-A [finished example](https://lemurian.herokuapp.com) that demonstrates some basic functionality.
+## Heroku
 
-## Step 1: Setup and deploy
-- Git clone the existing template repository.
-- `Procfile`, `requirements.txt`, `conda-requirements.txt`, and `runtime.txt`
-  contain some default settings.
-- There is some boilerplate HTML in `templates/`
-- Create Heroku application with `heroku create <app_name>` or leave blank to
-  auto-generate a name.
-- (Suggested) Use the [conda buildpack](https://github.com/thedataincubator/conda-buildpack).
-  If you choose not to, put all requirements into `requirements.txt`
-
-  `heroku config:add BUILDPACK_URL=https://github.com/thedataincubator/conda-buildpack.git#py3`
-
-  The advantages of conda include easier virtual environment management and fast package installation from binaries (as compared to the compilation that pip-installed packages sometimes require).
-  One disadvantage is that binaries take up a lot of memory, and the slug pushed to Heroku is limited to 300 MB. Another note is that the conda buildpack is being deprecated in favor of a Docker solution (see [docker branch](https://github.com/thedataincubator/flask-framework/tree/docker) of this repo for an example).
-- Deploy to Heroku: `git push heroku master`
-- You should be able to see your site at `https://<app_name>.herokuapp.com`
+- This app uses Heroku for hosting purposes
 - A useful reference is the Heroku [quickstart guide](https://devcenter.heroku.com/articles/getting-started-with-python-o).
 - This app runs using the app.py script, which calls StockGraphs.py, as well as template.html.
 
-## Step 2: Get data from API and put it in pandas
+## Accessing Data from API
+
 - This project utilizes the pandas DataReader to access The Investors Exchange (IEX) provides a wide range of data through an API.
-- Additional documentation on the reader can be found here https://pandas-datareader.readthedocs.io/en/latest/remote_data.html#remote-data-iex. 
+- Additional documentation on the reader can be found [here] (https://pandas-datareader.readthedocs.io/en/latest/remote_data.html#remote-data-iex). 
 
 
-
-## Step 3: Use Bokeh to plot pandas data
+## Using Bokeh to plot pandas data
 - Create a Bokeh plot from the dataframe.
 - A plotting function exists in the StockGraphs.py.
-- Consult the Bokeh [documentation](http://bokeh.pydata.org/en/latest/docs/user_guide/embed.html)
-  and [examples](https://github.com/bokeh/bokeh/tree/master/examples/embed).
-- Make the plot visible on your website through embedded HTML or other methods - this is where Flask comes in to manage the interactivity and display the desired content.
-- Some good references for Flask: [This article](https://realpython.com/blog/python/python-web-applications-with-flask-part-i/), especially the links in "Starting off", and [this tutorial](https://github.com/bev-a-tron/MyFlaskTutorial).
+- The plotting function is called by the app to plot whichever stock prices the users input data requires
+- Flask is used to make the plot visible on the website through embedded HTML
+
